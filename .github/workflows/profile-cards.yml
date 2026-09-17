@@ -1,32 +1,53 @@
-# Génère les cartes de statistiques DANS ce dépôt, au lieu de dépendre de
-# l'instance publique du service.
+# Génère les cartes de statistiques DANS ce dépôt.
 #
-# Pourquoi : cette instance partage un quota d'API entre tous les profils qui
-# l'utilisent. Quand il est atteint, elle renvoie 200 avec une image rouge
-# « Cards are temporarily rate limited » — le profil affiche alors des blocs
-# d'erreur. Générées ici, les images sont servies par raw.githubusercontent
-# et ne dépendent plus de personne.
+# Pourquoi : l'instance publique du service partage un quota d'API entre tous
+# les profils qui l'utilisent. Quand il est atteint, elle renvoie 200 avec une
+# image rouge « Cards are temporarily rate limited », et le profil affiche des
+# blocs d'erreur.
+#
+# Le push automatique de l'action échoue en silence (elle termine en code 0
+# sans journaliser l'erreur). On lui demande donc seulement de produire les
+# fichiers, et c'est ce workflow qui les commite — une étape dont on voit le
+# résultat.
 name: Cartes de profil
 
 on:
   schedule:
-    - cron: "17 3 * * *"   # une fois par jour
+    - cron: "17 3 * * *"
   push:
-    branches: [main]        # et à chaque mise à jour du README
-  workflow_dispatch:        # ou à la demande
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
-  contents: write           # l'action pousse les SVG sur une branche dédiée
+  contents: write
 
 jobs:
   generer:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           USERNAME: ${{ github.repository_owner }}
-          BRANCH_NAME: profile-summary-card-output
-          UTC_OFFSET: 0     # Sénégal
+          UTC_OFFSET: 0          # Sénégal
+          AUTO_PUSH: false
+
+      - name: Que produit l'action ?
+        run: find . -name "*.svg" -not -path "./.git/*" | head -30
+
+      - name: Commiter les cartes
+        run: |
+          set -e
+          mkdir -p cards
+          find . -path ./.git -prune -o -name "*.svg" -print \
+            -exec sh -c 'cp "$1" "cards/$(basename "$1")"' _ {} \;
+          ls -la cards/
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cards
+          git diff --cached --quiet && echo "rien à commiter" && exit 0
+          git commit -m "chore: regenerer les cartes de statistiques"
+          git push
