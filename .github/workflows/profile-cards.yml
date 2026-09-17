@@ -1,0 +1,55 @@
+# Génère les cartes de statistiques DANS ce dépôt.
+#
+# Pourquoi ne pas appeler le service en ligne directement : son instance
+# publique partage un quota d'API entre tous les profils qui l'utilisent.
+# Quand il est atteint, elle répond 200 avec une image rouge « Cards are
+# temporarily rate limited » — le profil affiche alors des blocs d'erreur, et
+# un contrôle qui ne regarde que le code HTTP ne le voit pas.
+#
+# Le push automatique de l'action échoue en silence (elle termine en code 0
+# sans journaliser l'erreur). On lui demande donc seulement de produire les
+# fichiers, et c'est ce workflow qui les commite — une étape dont on voit le
+# résultat dans les journaux.
+name: Cartes de profil
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          UTC_OFFSET: 0          # Sénégal
+          AUTO_PUSH: false
+
+      - name: Ne garder que le thème utilisé
+        run: |
+          set -e
+          cd profile-summary-card-output
+          # L'action produit 63 thèmes. Un seul est référencé par le README ;
+          # commiter les autres ajouterait 300 fichiers inutiles au dépôt.
+          find . -maxdepth 1 -mindepth 1 -type d ! -name transparent -exec rm -rf {} +
+          rm -f README.md
+          ls -la transparent/
+
+      - name: Commiter les cartes
+        run: |
+          set -e
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A profile-summary-card-output
+          git diff --cached --quiet && echo "cartes inchangées" && exit 0
+          git commit -m "chore: regenerer les cartes de statistiques"
+          git push
