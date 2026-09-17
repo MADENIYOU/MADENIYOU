@@ -99,11 +99,11 @@ Quinze objets PL/SQL — procédures, fonctions, triggers d'alerte, événements
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/profile-summary-card-output/transparent/0-profile-details.svg" alt="" />
+<img src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/0-profile-details.svg" alt="" />
 
-<img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/profile-summary-card-output/transparent/1-repos-per-language.svg" alt="" /> <img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/profile-summary-card-output/transparent/2-most-commit-language.svg" alt="" />
+<img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/1-repos-per-language.svg" alt="" /> <img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/2-most-commit-language.svg" alt="" />
 
-<img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/profile-summary-card-output/transparent/3-stats.svg" alt="" /> <img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/profile-summary-card-output/transparent/4-productive-time.svg" alt="" />
+<img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/3-stats.svg" alt="" /> <img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/4-productive-time.svg" alt="" />
 
 <img height="170" src="https://streak-stats.demolab.com?user=MADENIYOU&hide_border=true&background=00000000&ring=4FD1B5&fire=3f8fc7&currStreakLabel=4FD1B5&sideLabels=8b98a8&dates=8b98a8&stroke=8b98a8&currStreakNum=8b98a8&sideNums=8b98a8" alt="" />
 
