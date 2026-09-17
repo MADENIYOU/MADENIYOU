@@ -95,22 +95,6 @@ Quinze objets PL/SQL — procédures, fonctions, triggers d'alerte, événements
 
 ---
 
-## 📊 Statistiques
-
-<div align="center">
-
-<sub>Cartes régénérées chaque jour par une action GitHub et servies depuis ce dépôt — elles ne dépendent d'aucun quota partagé.</sub>
-
-<img src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/0-profile-details.svg" alt="" />
-
-<img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/1-repos-per-language.svg" alt="" /> <img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/2-most-commit-language.svg" alt="" />
-
-<img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/3-stats.svg" alt="" /> <img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/4-productive-time.svg" alt="" />
-
-</div>
-
----
-
 ## 💻 Tech Stack
 
 **Langages**
@@ -148,6 +132,22 @@ Quinze objets PL/SQL — procédures, fonctions, triggers d'alerte, événements
 **Et pour le plaisir**
 
 ![Unity](https://img.shields.io/badge/unity-%23000000.svg?style=for-the-badge&logo=unity&logoColor=white) ![Steam](https://img.shields.io/badge/steam-%23000000.svg?style=for-the-badge&logo=steam&logoColor=white) ![Xbox](https://img.shields.io/badge/xbox-%23107C10.svg?style=for-the-badge&logo=xbox&logoColor=white) ![PlayStation Network](https://img.shields.io/badge/PSN-%230070D1.svg?style=for-the-badge&logo=Playstation&logoColor=white) ![Epic Games](https://img.shields.io/badge/epicgames-%23313131.svg?style=for-the-badge&logo=epicgames&logoColor=white) ![EA](https://img.shields.io/badge/ea-%23000000.svg?style=for-the-badge&logo=ea&logoColor=white) ![nVIDIA](https://img.shields.io/badge/nVIDIA-%2376B900.svg?style=for-the-badge&logo=nVIDIA&logoColor=white) ![AMD](https://img.shields.io/badge/AMD-%23000000.svg?style=for-the-badge&logo=amd&logoColor=white) ![Windows Terminal](https://img.shields.io/badge/Windows%20Terminal-%234D4D4D.svg?style=for-the-badge&logo=windows-terminal&logoColor=white)
+
+---
+
+## 📊 Statistiques
+
+<div align="center">
+
+<sub>Cartes régénérées chaque jour par une action GitHub et servies depuis ce dépôt — elles ne dépendent d'aucun quota partagé.</sub>
+
+<img src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/0-profile-details.svg" alt="" />
+
+<img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/1-repos-per-language.svg" alt="" /> <img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/2-most-commit-language.svg" alt="" />
+
+<img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/3-stats.svg" alt="" /> <img width="49%" src="https://raw.githubusercontent.com/MADENIYOU/MADENIYOU/main/profile-summary-card-output/transparent/4-productive-time.svg" alt="" />
+
+</div>
 
 ---
 
