@@ -1,0 +1,32 @@
+# Génère les cartes de statistiques DANS ce dépôt, au lieu de dépendre de
+# l'instance publique du service.
+#
+# Pourquoi : cette instance partage un quota d'API entre tous les profils qui
+# l'utilisent. Quand il est atteint, elle renvoie 200 avec une image rouge
+# « Cards are temporarily rate limited » — le profil affiche alors des blocs
+# d'erreur. Générées ici, les images sont servies par raw.githubusercontent
+# et ne dépendent plus de personne.
+name: Cartes de profil
+
+on:
+  schedule:
+    - cron: "17 3 * * *"   # une fois par jour
+  push:
+    branches: [main]        # et à chaque mise à jour du README
+  workflow_dispatch:        # ou à la demande
+
+permissions:
+  contents: write           # l'action pousse les SVG sur une branche dédiée
+
+jobs:
+  generer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: vn7n24fzkq/github-profile-summary-cards@release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          USERNAME: ${{ github.repository_owner }}
+          BRANCH_NAME: profile-summary-card-output
+          UTC_OFFSET: 0     # Sénégal
